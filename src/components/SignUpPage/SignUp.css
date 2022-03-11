@@ -1,0 +1,19 @@
+.signUp {
+  width: 100rvw;
+  height: 100vh;
+  background-color: #2f363f;
+}
+.signUp_container {
+  max-width: 50rem;
+  position: absolute;
+  top: 12%;
+  right: 50%;
+  transform: translateX(50%);
+}
+.signUp_container form {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 5px;
+  border: 1px solid black;
+}

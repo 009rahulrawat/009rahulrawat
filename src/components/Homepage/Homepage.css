@@ -1,0 +1,22 @@
+.navContainer {
+  border-bottom: 1px solid rgb(212, 201, 201);
+}
+.displayFlex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.profileContainer {
+  background-color: #fafafa;
+  height: 100vh;
+}
+.profileBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profileBox img {
+  width: 15%;
+  border-radius: 50%;
+}
