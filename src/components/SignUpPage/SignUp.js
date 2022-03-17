@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SignUp.css";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase-config.js";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -10,16 +10,16 @@ import { async } from "@firebase/util";
 
 const SignUp = () => {
   const [email, setEmail] = useState();
+  const [error, setError] = useState(false);
   const [password, setPassword] = useState();
   // const [user, setUser] = useState("Null");
 
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const user = signInWithEmailAndPassword(auth, email, password);
-      // console.log(user);
+      const user = await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
-      console.log(error);
+      setError(error.message);
     }
   };
 
@@ -33,6 +33,11 @@ const SignUp = () => {
         <div className="signUp_container text-light">
           <div>
             <h3 className="text-center display-5 ">Sign In</h3>
+            {error ? (
+              <p className="error-message text-center">{error}</p>
+            ) : (
+              <p></p>
+            )}
           </div>
           <form>
             <div className="mb-3">

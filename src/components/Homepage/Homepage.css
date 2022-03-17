@@ -3,20 +3,44 @@
 }
 .displayFlex {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .profileContainer {
-  background-color: #fafafa;
-  height: 100vh;
+  background-color: #f0f0f0;
+  /* height: 100vh; */
 }
 .profileBox {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 .profileBox img {
   width: 15%;
   border-radius: 50%;
+}
+.innerprofilebox {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: white;
+}
+.loginUser p,
+h5 {
+  margin: 0;
+}
+.loginUser h5 {
+  color: #0b5ed7;
+}
+.loginUser .jDate {
+  color: #aaaaaa;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.navSignOut {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.navSignOut p {
+  margin: 0;
+  color: #e00f1a;
 }

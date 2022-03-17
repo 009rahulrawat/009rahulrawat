@@ -1,7 +1,7 @@
 import "./App.css";
 import SignUp from "./components/SignUpPage/SignUp";
-import Homepage from "./components/Homepage/Homepage";
-import { auth } from "./firebase";
+import Body from "./components/Body/Body";
+import { auth } from "./firebase-config";
 import { onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ function App() {
   });
   return (
     <div className="App">
-      {user ? <Homepage userKey={userEmail} /> : <SignUp />}
+      {user ? <Body userKey={userEmail} /> : <SignUp />}
     </div>
   );
 }
