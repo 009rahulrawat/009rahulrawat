@@ -2,10 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import "./UserList.css";
 import { db } from "../../../firebase-config";
 import { collection, getDocs, setDoc, doc } from "firebase/firestore";
-import ContextState from "../../Context/ContextState";
 
 const UserList = () => {
-  const a = useContext(ContextState);
   // console.log(a);
   const [user, setUser] = useState([]);
   const userCollectionRef = collection(db, "users");

@@ -23,3 +23,13 @@
   height: 10rem;
   border-radius: 50%;
 }
+.addFriend {
+  font-size: 1.25rem;
+}
+.addFriend button {
+  color: #1154b7;
+  border: none;
+}
+.addFriend button:hover {
+  transform: scale(1.2);
+}

@@ -1,14 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import API from "../../API/API";
 import "./FindUser.css";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const FindUser = () => {
   const [userType, setUsersType] = useState("");
   const [fetchedUsers, setFetchedUsers] = useState([{}]);
+  const [addFriends, setAddFriends] = useState([]);
 
   const handleFetchUser = () => {
+    console.log(userType);
     setFetchedUsers(API);
   };
 
+  var storedUsers = JSON.parse(localStorage.getItem("addFriend"));
+
+  const handleAddFriend = (userInterest) => {
+    var flag = 0;
+    if (addFriends.length == 0) {
+      setAddFriends((addFriend) => [...addFriend, userInterest]);
+    } else {
+      for (var i = 0; i < addFriends.length; i++) {
+        // console.log(addFriends[i], userInterest);
+        if (addFriends[i] === userInterest) {
+          flag = 1;
+          break;
+        }
+      }
+      if (flag === 0) {
+        setAddFriends((addFriend) => [...addFriend, userInterest]);
+      }
+    }
+    localStorage.setItem("addFriend", JSON.stringify(addFriends));
+  };
+
+  useEffect(() => {
+    if (storedUsers != null) {
+      setAddFriends(storedUsers);
+    }
+  }, []);
   return (
     <>
       <div className="findUser container ">
@@ -37,7 +68,7 @@ const FindUser = () => {
         <div className="recUsers text-center">
           <div className="fetchedUsers">
             {fetchedUsers.map((val, idx) => {
-              if (val.interest == userType) {
+              if (val.interest === userType) {
                 return (
                   <>
                     <div
@@ -54,12 +85,18 @@ const FindUser = () => {
                         <p>{val.email}</p>
                         <p>interest: {val.interest}</p>
                       </div>
+                      <div className="addFriend">
+                        <button onClick={() => handleAddFriend(val.interest)}>
+                          <FontAwesomeIcon icon={faUserPlus} />
+                        </button>
+                      </div>
                     </div>
                   </>
                 );
               }
             })}
           </div>
+          <div></div>
         </div>
       </div>
     </>
