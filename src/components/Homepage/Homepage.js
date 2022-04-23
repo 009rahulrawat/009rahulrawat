@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./Homepage.css";
-import img from "../Assets/profileimg.jpg";
+// import img from "../Assets/profileimg.jpg";
 import UserList from "./UsersList/UserList";
 // import { db } from "../../firebase-config";
 // import { collection, getDocs, query, where } from "firebase/firestore";
 import API from "../../API/API";
 
+import { useDispatch } from "react-redux";
+import { userAuthEmail } from "../../actions/index";
+
 const Homepage = (props) => {
+  const dispatch = useDispatch();
   const [loginUser, setLoginUser] = useState({
     name: "",
     email: "",
@@ -22,9 +26,10 @@ const Homepage = (props) => {
         setLoginUser({
           name: API[i].name,
           email: API[i].email,
+          image: API[i].image,
         });
-
         // setLoginUser.email = API[i].email;
+        dispatch(userAuthEmail(loginUser));
       }
     }
     // console.log(loginUser);
@@ -39,7 +44,7 @@ const Homepage = (props) => {
 
   useEffect(() => {
     fetchUserData();
-  }, []);
+  }, [loginUser]);
   return (
     <>
       <div className="container-fluid profileContainer py-5">
@@ -50,7 +55,7 @@ const Homepage = (props) => {
             </div>
             <div className="profileBox col-8">
               <div className="innerprofilebox py-3 userBoxShadow">
-                <img src={img} />
+                <img src={loginUser.image} />
                 <div>
                   <div className="loginUser">
                     <h5 className="text-center">{loginUser.name}</h5>

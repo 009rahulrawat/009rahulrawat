@@ -4,7 +4,7 @@ const API = [
     interest: "digital marketing",
     email: "amanrawa2@gmail.com",
     image:
-      "https://media.istockphoto.com/photos/handsome-caucasian-man-taking-a-self-portrait-indoor-at-home-picture-id1290241783?b=1&k=20&m=1290241783&s=170667a&w=0&h=GMfpHgzeFHrUnVhOAN9lp_tbxgO4ktPxPoLK9TkXzWc=",
+      "https://cdn.pixabay.com/photo/2015/11/17/13/13/puppy-1047521_960_720.jpg",
   },
   {
     name: "Leanne Graham",
@@ -95,6 +95,13 @@ const API = [
     email: "Rey.Padberg@karina.biz",
     image:
       "https://cdn.pixabay.com/photo/2017/01/23/19/40/woman-2003647__340.jpg",
+  },
+  {
+    name: "Rahul Rawat",
+    interest: "web developer",
+    email: "rahulrawat@gmail.com",
+    image:
+      "https://cdn.pixabay.com/photo/2019/09/03/06/15/girl-4448689_960_720.jpg",
   },
 ];
 

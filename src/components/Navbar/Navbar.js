@@ -5,8 +5,11 @@ import logo from "../Assets/instalogo.png";
 import { NavLink } from "react-router-dom";
 import { faHome, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const user = useSelector((state) => state.userAuth);
+
   const handleSignOut = async () => {
     await signOut(auth);
   };
@@ -47,7 +50,7 @@ const Navbar = () => {
           <button className="btn btn-primary" onClick={handleSignOut}>
             Sign Out
           </button>
-          {/* <p>{props.userKey}</p> */}
+          <p>{user.email}</p>
         </div>
       </div>
     </div>
