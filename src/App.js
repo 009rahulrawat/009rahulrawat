@@ -11,7 +11,7 @@ function App() {
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
     setUserEmail(currentUser.email);
-    // console.log(currentUser.email);
+    // console.log(user);
   });
   return (
     <div className="App">

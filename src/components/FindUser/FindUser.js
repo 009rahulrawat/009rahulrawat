@@ -10,19 +10,20 @@ const FindUser = () => {
   const [addFriends, setAddFriends] = useState([]);
 
   const handleFetchUser = () => {
-    console.log(userType);
+    // console.log(userType);
     setFetchedUsers(API);
   };
 
   var storedUsers = JSON.parse(localStorage.getItem("addFriend"));
 
   const handleAddFriend = (userInterest) => {
+    console.log(userInterest);
+
     var flag = 0;
-    if (addFriends.length == 0) {
+    if (addFriends.length === 0) {
       setAddFriends((addFriend) => [...addFriend, userInterest]);
     } else {
       for (var i = 0; i < addFriends.length; i++) {
-        // console.log(addFriends[i], userInterest);
         if (addFriends[i] === userInterest) {
           flag = 1;
           break;
@@ -36,7 +37,7 @@ const FindUser = () => {
   };
 
   useEffect(() => {
-    if (storedUsers != null) {
+    if (storedUsers !== null) {
       setAddFriends(storedUsers);
     }
   }, []);

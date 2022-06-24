@@ -8,6 +8,7 @@ import API from "../../API/API";
 
 import { useDispatch } from "react-redux";
 import { userAuthEmail } from "../../actions/index";
+import ImageRecommendation from "./ImageRecommendation/ImageRecommendation";
 
 const Homepage = (props) => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Homepage = (props) => {
   const fetchUserData = () => {
     for (var i = 0; i < API.length; i++) {
       if (API[i].email === props.userKey) {
+        // console.log(API[i].email);
         setLoginUser({
           name: API[i].name,
           email: API[i].email,
@@ -44,7 +46,7 @@ const Homepage = (props) => {
 
   useEffect(() => {
     fetchUserData();
-  }, [loginUser]);
+  }, []);
   return (
     <>
       <div className="container-fluid profileContainer py-5">
@@ -55,27 +57,23 @@ const Homepage = (props) => {
             </div>
             <div className="profileBox col-8">
               <div className="innerprofilebox py-3 userBoxShadow">
-                <img src={loginUser.image} />
+                {/* <img className="userImage" src={loginUser.image} /> */}
+                <img
+                  className="userImage"
+                  src="https://cdn.pixabay.com/photo/2015/11/17/13/13/puppy-1047521_960_720.jpg"
+                />
                 <div>
                   <div className="loginUser">
-                    <h5 className="text-center">{loginUser.name}</h5>
+                    {/* <h5 className="text-center">{loginUser.name}</h5> */}
+                    <h5 className="text-center">Aman Rawat</h5>
                     <p className="text-center jDate">15 days ago</p>
-                    <p className="text-center">{loginUser.email}</p>
+                    {/* <p className="text-center">{loginUser.email}</p> */}
+                    <p className="text-center">amanrawa2@gmail.com</p>
                   </div>
-                  {/* {loginUser.map((val, index) => {
-                    return (
-                      <>
-                        <div className="loginUser">
-                          <h5 className="text-center">{val.username}</h5>
-                          <p className="text-center jDate">
-                            {val.joining_date} days ago
-                          </p>
-                          <p className="text-center">{val.email}</p>
-                        </div>
-                      </>
-                    );
-                  })} */}
                 </div>
+              </div>
+              <div className="mt-5">
+                <ImageRecommendation />
               </div>
             </div>
           </div>

@@ -7,6 +7,28 @@ const ProfilePage = () => {
   const [userCount, setUserCount] = useState(5);
   var storedUsers = JSON.parse(localStorage.getItem("addFriend"));
   console.log(storedUsers);
+
+  // -------------shuffling code--------------
+  // function shuffle(array) {
+  //   let currentIndex = array.length,
+  //     randomIndex;
+
+  //   // While there remain elements to shuffle.
+  //   while (currentIndex !== 0) {
+  //     // Pick a remaining element.
+  //     randomIndex = Math.floor(Math.random() * currentIndex);
+  //     currentIndex--;
+
+  //     // And swap it with the current element.
+  //     [array[currentIndex], array[randomIndex]] = [
+  //       array[randomIndex],
+  //       array[currentIndex],
+  //     ];
+  //   }
+  //   return array;
+  // }
+  // ----------------------------------------
+
   const handleRecommendedFriends = () => {
     if (storedUsers === null) {
       console.log("No recommendations for you!");
@@ -21,11 +43,13 @@ const ProfilePage = () => {
           }
         }
       });
+      console.log("recdf:", recommendedFriends);
     }
+    // shuffle(recommendedFriends);
   };
 
   useEffect(() => {
-    if (storedUsers != null) setNoFriends(false);
+    if (storedUsers !== null) setNoFriends(false);
   }, []);
 
   useEffect(() => {

@@ -12,7 +12,7 @@
 }
 .profileBox {
 }
-.profileBox img {
+.profileBox .userImage {
   width: 15%;
   border-radius: 50%;
 }
